@@ -3,7 +3,8 @@ package com.desarrollo.controller;
 import com.desarrollo.dto.tarea.TareaRequestDTO;
 import com.desarrollo.dto.tarea.TareaResponseDTO;
 import com.desarrollo.model.UserEntity;
-import com.desarrollo.service.tareas.ITareasService;
+
+import com.desarrollo.service.tareas.imp.ITareasService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
