@@ -7,7 +7,6 @@ import com.desarrollo.model.*;
 import com.desarrollo.repository.ProyectoRepository;
 import com.desarrollo.repository.tareaRepository.TareaRespository;
 import com.desarrollo.repository.userRepository.UserRepository;
-import com.desarrollo.service.tareas.ITareasService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
