@@ -2,16 +2,23 @@ package com.desarrollo.dto.tarea;
 
 import lombok.Builder;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.Date;
 
 @Data
 @Builder
+@Getter
+@Setter
 
-public class TareaRequestDTO {
+public class TareaResponseDTO {
+    private Long id;
     private String nombre;
     private Date fechaVencimiento;
     private String prioridad;
-    private Long proyectoId;
-    private String estado ;
+    private String proyectoNombre;
+
+    //estado
+    private String estado;
 }

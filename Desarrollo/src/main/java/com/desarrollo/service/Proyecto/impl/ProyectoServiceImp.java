@@ -35,16 +35,22 @@ public class ProyectoServiceImp implements ProyectoService {
         UserEntity usuario = userRepository.findById(userid)
                 .orElseThrow(() -> new RuntimeException("Usuario no encontrado con id: " + userid));
 
-        ProyectoEntity proyecto = new ProyectoEntity();
-        proyecto.setNombre(proyectoDTO.getNombre());
-        //asignamos el usuario que creó el proyecto
-        proyecto.setUsuarios(new HashSet<>(Collections.singletonList(usuario)));
+        if(proyectoRepository.existsByNombre(proyectoDTO.getNombre())){
+            throw new RuntimeException(String.format("El proyecto %s ya existe, use otro nombre",proyectoDTO.getNombre()));
+        } else {
+            ProyectoEntity proyecto = new ProyectoEntity();
+            proyecto.setNombre(proyectoDTO.getNombre());
+            //asignamos el usuario que creó el proyecto
+            proyecto.setUsuarios(new HashSet<>(Collections.singletonList(usuario)));
 
-        Optional<ColorEntity> color = colorRepository.findById(proyectoDTO.getColorId());
-        proyecto.setColores(color.get());
-        ProyectoEntity proyectoGuardado = proyectoRepository.save(proyecto);
+            Optional<ColorEntity> color = colorRepository.findById(proyectoDTO.getColorId());
+            proyecto.setColores(color.get());
+            ProyectoEntity proyectoGuardado = proyectoRepository.save(proyecto);
 
-        return mapToResponse(proyectoGuardado);
+            return mapToResponse(proyectoGuardado);
+        }
+
+
     }
 
     @Override
