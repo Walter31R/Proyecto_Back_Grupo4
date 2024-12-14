@@ -174,6 +174,7 @@ public class TareasServiceImpl implements ITareasService {
                 .fechaVencimiento(tarea.getFechaVencimiento())
                 .prioridad(tarea.getPrioridad().toString())
                 .proyectoNombre(tarea.getProyectos().getNombre())
+                .estado(tarea.getEstadoEnum().name())
                 .build();
     }
 
