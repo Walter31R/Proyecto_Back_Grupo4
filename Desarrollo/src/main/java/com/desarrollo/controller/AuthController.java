@@ -81,10 +81,10 @@ public class AuthController {
             long usuarioId = usuario.getId();
 
             if(auth){
-
                 response.put("message","Logeo exitoso");
                 response.put("usuario", usuario);
                 response.put("usuarioId", usuarioId);
+                response.put("usuarioNombre", usuario.getNombreCliente());
 
                 return ResponseEntity.status(HttpStatus.ACCEPTED).body(response);
             }else{
